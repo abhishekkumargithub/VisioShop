@@ -11,6 +11,26 @@
     <link rel="stylesheet" href="css/header.css">
     <script src="https://kit.fontawesome.com/4a3b1f73a2.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <style>
+        #userOptions {
+            display: none;
+            position: absolute;
+            top: 40px;
+            right: 0;
+            background-color: white;
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        #user:hover #userOptions {
+            display: block;
+        }
+
+        #userOptions button {
+            display: block;
+            margin-bottom: 5px;
+        }
+      </style>
 </head>
 <body>
     
@@ -34,6 +54,10 @@
                     <div id="user">
                         <a href="cart.html"> <i class="fas fa-shopping-cart addedToCart"><div id="badge"> 0 </div></i></a>
                         <a href="#"> <i class="fas fa-user-circle userIcon"></i> </a>
+                        <div id="userOptions">
+                            <button>Log in/Sign up</button>
+                            <button>Profile</button>
+                          </div>
                     </div>
             </div>
 
