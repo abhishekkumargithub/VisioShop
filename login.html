@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background-color: #232D3F;
+    background-image: url('./css/background.jpg'); /* Replace with your actual background image URL */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    margin-bottom: 8%;
+    text-align: center;
+    font-family: "Fredoka One", cursive;
+    color: #0F0F0F;
+    letter-spacing: 0.1em;
+}
+
+p {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #fff;
+    line-height: 0.1em;
+}
+
+p span {
+    background: #fff;
+    padding: 0 10px;
+}
+
+input {
+    margin-bottom: 3%;
+    padding: 3%;
+    width: 100%;
+    border-radius: 8px;
+}
+
+input:last-of-type {
+    margin-bottom: 0;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Adding some transparency to the white background */
+    padding: 7%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 40vw;
+    margin-left: 30vw;
+    height: 70vh;
+    margin-top: 15vh;
+    border-radius: 15px; /* Rounded corners */
+}
+
+#submit,
+#create-acct-btn {
+    background-color: #0583D2;
+    color: white;
+    border: none;
+    margin-top: 5%;
+    padding: 3%;
+    border-radius: 8px;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    transition: 0.3s;
+}
+
+#sign-up,
+  #create-acct-btn {
+      background-color: #0583D2;
+      color: white;
+      border: none;
+      margin-top: 5%;
+      padding: 3%;
+      border-radius: 8px;
+  }
+
+  button:hover {
+      cursor: pointer;
+      opacity: 0.8;
+      transition: 0.3s;
+  }
+
+#create-acct {
+    display: none;
+}
+
+#return-btn {
+    background: none;
+    color: grey;
+    text-decoration: underline;
+    border: none;
+    margin-top: 3%;
+}
+  </style>
+</head>
+<body>
+  <div class = "login-container">
+    <div id= "main">
+      <h1>Sign In</h1>
+      <input id = "email" type = "text" placeholder = "Email"></input>
+      <input id = "password" type = "password" placeholder = "Password"></input>
+      <button id = "submit">Submit</button>
+      <p><span>or</span></p>
+      <button id = "sign-up">Sign Up</button>
+    </div>
+
+    <div id = "create-acct">
+      <h1>Create an Account</h1>
+      <input id = "email-signup" type = "text" placeholder = "Email *"></input>
+  <input id = "confirm-email-signup" type = "email" placeholder = "Confirm Email *"></input>
+      <input id = "password-signup" type = "password" placeholder = "Password *"></input>
+      <input id = "confirm-password-signup" type = "password" placeholder = "Confirm Password *"></input>
+      <button id = "create-acct-btn">Create Account</button>
+      <button id = "return-btn">Return to Login</button>
+    </div>
+  </div>
+  <script type = "module" src = "login.js"></script>
+</body>
+</html>
