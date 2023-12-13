@@ -8,7 +8,12 @@ if(document.cookie.indexOf(',counter=')>=0)
     let counter = document.cookie.split(',')[1].split('=')[1]
     document.getElementById("badge").innerHTML = counter
 }
-
+function speak(text) {
+    responsiveVoice.speak(text);
+  }
+  function stopSpeaking() {
+    responsiveVoice.cancel();
+  }
 function dynamicContentDetails(ob)
 {
     let mainContainer = document.createElement('div')
@@ -114,10 +119,22 @@ function dynamicContentDetails(ob)
     
     
     productDetailsDiv.appendChild(buttonDiv)
-
-
+    buttonTag.onmouseover = function () {
+        speak('Add to Cart');
+      };
+      
+      h3.onmouseover = function () {
+        speak(ob.description);
+      };
+      buttonTag.addEventListener('mouseleave', function () {
+        stopSpeaking();
+      });
+      h3.addEventListener('mouseleave', function () {
+        stopSpeaking();
+      });
     return mainContainer
 }
+
 
 
 

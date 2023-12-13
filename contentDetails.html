@@ -33,9 +33,12 @@
     <div id="containerProduct">
         <!-- JS rendered code -->
     </div>
-    
-<script src="/contentDetails.js"></script>
-
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=SwVRBhUp"></script>
+    <script src="/contentDetails.js" defer></script>
+<!-- Voice Commands -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/SpeechKITT/0.3.0/speechkitt.min.js"></script>
+<script src="commands.js"></script>
 <!-- FOOTER -->
 <div id="4"></div>
 <script>
@@ -48,5 +51,6 @@
         document.getElementById(4).innerHTML = req.responseText;
     }
 </script>
+
 </body>
 </html>

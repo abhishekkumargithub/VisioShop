@@ -184,6 +184,38 @@
 <!-- slider JS ENDS -->
 
 <!-- content JS -->
+<script src="https://code.responsivevoice.org/responsivevoice.js?key=SwVRBhUp"></script>
 <script src="content.js"></script>
-
+<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/SpeechKITT/0.3.0/speechkitt.min.js"></script>
+<script src="commands.js"></script>
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const clothingLink = document.getElementById('clothing');
+          const accessoriesLink = document.getElementById('accessories');
+        
+          // Function to speak the text using the Web Speech API
+          function speakText(text) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            window.speechSynthesis.speak(utterance);
+          }
+          function stopSpeaking() {
+             speechSynthesis.cancel();
+          }
+          // Add event listeners for hover on clothing and accessories links
+          clothingLink.addEventListener('mouseover', function () {
+            speakText('Clothing');
+          });
+        
+          accessoriesLink.addEventListener('mouseover', function () {
+            speakText('Accessories');
+          });
+          clothingLink.addEventListener("mouseleave", function () {
+            stopSpeaking();
+          });
+          accessoriesLink.addEventListener("mouseleave", function () {
+            stopSpeaking();
+          });
+        });
+        </script>
 </html>
