@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/footer.css">
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=SwVRBhUp"></script>
 </head>
 
 <body>
@@ -20,8 +21,8 @@
                     <h3> online store </h3>
                     <p> men clothing </p>
                     <p> women clothing </p>
-                    <p> men accessories </p>
-                    <p> women accessories </p>
+                    <p> grocery </p>
+                    <p> medicine </p>
                 </div>
                 <div id="webFooter">
                     <h3> helpful link </h3>
@@ -45,10 +46,38 @@
                     <p> India </p>
                 </div>
             </div>
-            <div id="credit"><a href="https://linkedin.com/in/priyanka-sharma-b79401142"> © All rights reserved </a> &nbsp&nbsp&nbsp | &nbsp&nbsp&nbsp <a href="https://www.edyoda.com/" target="_blank"> Abhishek  Atharva Vyshnav</a></div>
+            <div id="credit">
+                <a href="#"> © All rights reserved </a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="#" target="_blank"> Abhishek Atharva Vyshnav</a>
+            </div>
         </section>
-
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Function to start speaking
+            function startSpeaking(text) {
+                responsiveVoice.speak(text);
+            }
+
+            // Function to stop speaking
+            function stopSpeaking() {
+                responsiveVoice.cancel();
+            }
+
+            // Attach event listeners to all <h3> and <p> elements inside #webFooter
+            const webFooterElements = document.querySelectorAll('#webFooter h3, #webFooter p');
+            webFooterElements.forEach(element => {
+                element.addEventListener('mouseover', function () {
+                    startSpeaking(element.textContent);
+                });
+
+                element.addEventListener('mouseleave', function () {
+                    stopSpeaking();
+                });
+            });
+        });
+    </script>
 </body>
 </html>
