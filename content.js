@@ -56,6 +56,23 @@ function stopSpeaking() {
   window.speechSynthesis.cancel();
 }
 
+
+
+// Get references to the button and headings
+const switchBtn = document.getElementById('switchBtn');
+const headings = document.querySelectorAll('#mainContainer h1');
+
+// Function to change the headings color
+function changeHeadingsColor() {
+  // Change color to, for example, white
+  headings.forEach(function(heading) {
+    heading.style.color = 'white';
+  });
+}
+
+// Add click event listener to the switch button
+switchBtn.addEventListener('click', changeHeadingsColor);
+
 document.addEventListener('DOMContentLoaded', function () {
   let mainContainer = document.getElementById("mainContainer");
   let containerClothing = document.getElementById("containerClothing");
@@ -63,6 +80,8 @@ document.addEventListener('DOMContentLoaded', function () {
   let fragment = document.createDocumentFragment();
 
   let httpRequest = new XMLHttpRequest();
+
+
 
   httpRequest.onreadystatechange = function () {
     if (this.readyState === 4) {
@@ -74,17 +93,20 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         for (let i = 0; i < contentTitle.length; i++) {
-          let clothingSection = dynamicClothingSection(contentTitle[i]);
-          fragment.appendChild(clothingSection);
+          let section = dynamicClothingSection(contentTitle[i]);
+          if (contentTitle[i].isAccessory) { // Using 'isAccessory' property
+            containerAccessories.appendChild(section);
+          } else {
+            containerClothing.appendChild(section);
+          }
         }
-
-        // Append the fragment to the DOM
-        containerClothing.appendChild(fragment);
       } else {
         console.log("call failed!");
       }
     }
   };
+
+
 
   httpRequest.open(
     "GET",
