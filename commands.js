@@ -13,6 +13,18 @@
     }
     
      });
+     annyang.addCommands({
+      'grocery': function() {
+       window.location.href = 'grocery.html';
+   }
+   
+    });
+    annyang.addCommands({
+      'Medicines': function() {
+       window.location.href = 'medicine.html';
+   }
+   
+    });
   
 annyang.addCommands({
   'add to cart': function() {
