@@ -3,17 +3,14 @@ console.clear()
 let id = location.search.split('?')[1]
 console.log(id)
 
-if (document.cookie.indexOf(',counter=') >= 0) {
+if(document.cookie.indexOf(',counter=')>=0)
+{
     let counter = document.cookie.split(',')[1].split('=')[1]
     document.getElementById("badge").innerHTML = counter
 }
-function speak(text) {
-    responsiveVoice.speak(text);
-}
-function stopSpeaking() {
-    responsiveVoice.cancel();
-}
-function dynamicContentDetails(ob) {
+
+function dynamicContentDetails(ob)
+{
     let mainContainer = document.createElement('div')
     mainContainer.id = 'containerD'
     document.getElementById('containerProduct').appendChild(mainContainer);
@@ -22,9 +19,9 @@ function dynamicContentDetails(ob) {
     imageSectionDiv.id = 'imageSection'
 
     let imgTag = document.createElement('img')
-    imgTag.id = 'imgDetails'
-    //imgTag.id = ob.photos
-    imgTag.src = ob.preview
+     imgTag.id = 'imgDetails'
+     //imgTag.id = ob.photos
+     imgTag.src = ob.preview
 
     imageSectionDiv.appendChild(imgTag)
 
@@ -66,15 +63,17 @@ function dynamicContentDetails(ob) {
     productPreviewDiv.appendChild(h3ProductPreviewDiv)
 
     let i;
-    for (i = 0; i < ob.photos.length; i++) {
+    for(i=0; i<ob.photos.length; i++)
+    {
         let imgTagProductPreviewDiv = document.createElement('img')
         imgTagProductPreviewDiv.id = 'previewImg'
         imgTagProductPreviewDiv.src = ob.photos[i]
-        imgTagProductPreviewDiv.onclick = function (event) {
+        imgTagProductPreviewDiv.onclick = function(event)
+        {
             console.log("clicked" + this.src)
             imgTag.src = ob.photos[i]
-            document.getElementById("imgDetails").src = this.src
-
+            document.getElementById("imgDetails").src = this.src 
+            
         }
         productPreviewDiv.appendChild(imgTagProductPreviewDiv)
     }
@@ -86,10 +85,12 @@ function dynamicContentDetails(ob) {
     buttonDiv.appendChild(buttonTag)
 
     buttonText = document.createTextNode('Add to Cart')
-    buttonTag.onclick = function () {
-        let order = id + " "
+    buttonTag.onclick  =   function()
+    {
+        let order = id+" "
         let counter = 1
-        if (document.cookie.indexOf(',counter=') >= 0) {
+        if(document.cookie.indexOf(',counter=')>=0)
+        {
             order = id + " " + document.cookie.split(',')[0].split('=')[1]
             counter = Number(document.cookie.split(',')[1].split('=')[1]) + 1
         }
@@ -110,30 +111,12 @@ function dynamicContentDetails(ob) {
     detailsDiv.appendChild(h3)
     detailsDiv.appendChild(para)
     productDetailsDiv.appendChild(productPreviewDiv)
-
-
-    productDetailsDiv.appendChild(buttonDiv)
-    buttonTag.onmouseover = function () {
-        speak('Add to Cart');
-    };
-
-    h3.onmouseover = function () {
-        speak(ob.description);
-    };
-    buttonTag.addEventListener('mouseleave', function () {
-        stopSpeaking();
-    });
-    h3.addEventListener('mouseleave', function () {
-        stopSpeaking();
-    });
-    return mainContainer
-}
-
-function loadGoogleTranslate(){
-    new google.translate.TranslateElement("google_element");
-    new google.translate.TranslateElement("collection"); 
-    new google.translate.TranslateElement("search"); 
     
+    
+    productDetailsDiv.appendChild(buttonDiv)
+
+
+    return mainContainer
 }
 
 
@@ -142,8 +125,10 @@ function loadGoogleTranslate(){
 
 let httpRequest = new XMLHttpRequest()
 {
-    httpRequest.onreadystatechange = function () {
-        if (this.readyState === 4 && this.status == 200) {
+    httpRequest.onreadystatechange = function()
+    {
+        if(this.readyState === 4 && this.status == 200)
+        {
             console.log('connected!!');
             let contentDetails = JSON.parse(this.responseText)
             {
@@ -151,11 +136,12 @@ let httpRequest = new XMLHttpRequest()
                 dynamicContentDetails(contentDetails)
             }
         }
-        else {
+        else
+        {
             console.log('not connected!');
         }
     }
 }
 
-httpRequest.open('GET', 'https://5d76bf96515d1a0014085cf9.mockapi.io/product/' + id, true)
+httpRequest.open('GET', 'https://5d76bf96515d1a0014085cf9.mockapi.io/product/'+id, true)
 httpRequest.send()  

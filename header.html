@@ -1,94 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> HEADER </title>
     <!-- favicon -->
-    <link rel="icon"
-        href="https://yt3.ggpht.com/a/AGF-l78km1YyNXmF0r3-0CycCA0HLA_i6zYn_8NZEg=s900-c-k-c0xffffffff-no-rj-mo"
-        type="image/gif" sizes="16x16">
+    <link rel="icon" href="https://yt3.ggpht.com/a/AGF-l78km1YyNXmF0r3-0CycCA0HLA_i6zYn_8NZEg=s900-c-k-c0xffffffff-no-rj-mo" type="image/gif" sizes="16x16">
     <!-- EXTERNAL LINKS -->
     <link rel="stylesheet" href="css/header.css">
     <script src="https://kit.fontawesome.com/4a3b1f73a2.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-    <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
     <style>
-
         #userOptions {
             display: none;
             position: absolute;
             top: 40px;
             right: 0;
-            background-color: #fff;
-            border: 1px solid #000;
+            background-color: white;
+            border: 1px solid black;
             padding: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
         }
 
-
-    #user:hover #userOptions {
-        display: block;
-    }
-
+        #user:hover #userOptions {
+            display: block;
+        }
 
         #userOptions button {
             display: block;
-            margin-bottom: 8px;
-            padding: 8px;
-            background-color: #0583D2;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            margin-bottom: 5px;
         }
-
-        #userOptions button:hover {
-            background-color: #045B9B;
-        }
-    </style>
-
+      </style>
 </head>
-
 <body>
-
+    
     <header>
         <section>
             <!-- MAIN CONTAINER -->
             <div id="container">
                 <!-- SHOP NAME -->
                 <div id="shopName"><a href="index.html"> <b>VISIO</b>SHOP </a></div>
-                
-                <!-- COLLCETIONS ON WEBSITE -->
-                <div id="collection">
-                    <div id="clothing"><a href="grocery.html"> GROCERY</a></div>
-                    <div id="accessories"><a href="medicine.html"> MEDICINES </a></div>
-                </div>
-                <!-- SEARCH SECTION -->
-                <div id="search">
-                    <i class="fas fa-search search"></i>
-                    <input type="text" id="input" name="searchBox" placeholder="Search for Clothing and Accessories">
-                </div>
-                <!-- USER SECTION (CART AND USER ICON) -->
-                <div id="user">
-                    <a href="cart.html"> <i class="fas fa-shopping-cart addedToCart">
-                            <div id="badge"> 0 </div>
-                        </i></a>
-                    <a href="#"> <i class="fas fa-user-circle userIcon"></i> </a>
-                    <div id="userOptions">
-                        <button><a href="login.html">Log in/Sign up</a> </button>
-                        <a href="profile.html"><button>Profile</button></a>
+                    <!-- COLLCETIONS ON WEBSITE -->
+                    <div id="collection">
+                        <div id="clothing"><a href="clothing.html"> CLOTHING </a></div>
+                        <div id="accessories"><a href="accessories.html"> ACCESSORIES </a></div>
                     </div>
-                </div>
+                    <!-- SEARCH SECTION -->
+                    <div id="search">
+                        <i class="fas fa-search search"></i>
+                        <input type="text" id="input" name="searchBox" placeholder="Search for Clothing and Accessories">
+                    </div>
+                    <!-- USER SECTION (CART AND USER ICON) -->
+                    <div id="user">
+                        <a href="cart.html"> <i class="fas fa-shopping-cart addedToCart"><div id="badge"> 0 </div></i></a>
+                        <a href="#"> <i class="fas fa-user-circle userIcon"></i> </a>
+                        <div id="userOptions">
+                            <button>Log in/Sign up</button>
+                            <button>Profile</button>
+                          </div>
+                    </div>
             </div>
 
         </section>
     </header>
 
 </body>
-
 </html>
