@@ -105,3 +105,43 @@ returnBtn.addEventListener("click", function() {
     main.style.display = "block";
     createacct.style.display = "none";
 });
+
+        // Function to speak text
+      function speakText(text) {
+          const utterance = new SpeechSynthesisUtterance(text);
+          window.speechSynthesis.speak(utterance);
+      }
+
+      // Function to stop speech
+      function stopSpeech() {
+          window.speechSynthesis.cancel();
+      }
+      // login text to speech
+      emailInput.addEventListener('mouseenter', () => speakText('Email input field'));
+      emailInput.addEventListener('mouseleave', stopSpeech);
+      passwordInput.addEventListener('mouseenter', () => speakText('Password input field'));
+      passwordInput.addEventListener('mouseleave', stopSpeech);
+      submitButton.addEventListener('mouseenter', () => speakText('Submit button'));
+      submitButton.addEventListener('mouseleave', stopSpeech);
+      signupButton.addEventListener('mouseenter',()=> speakText('Sign Up to create a new account'));
+      signupButton.addEventListener('mouseleave', stopSpeech);
+      emailSignupInput.addEventListener('mouseenter', () => speakText('Email field'));
+      //sign up text to speech
+       // Define elements for sign up text-to-speech
+const emailSignupInput = document.getElementById("email-signup");
+const confirmEmailSignupInput = document.getElementById("confirm-email-signup");
+const passwordSignupInput = document.getElementById("password-signup");
+const confirmPasswordSignupInput = document.getElementById("confirm-password-signup");
+const createAcctBtn = document.getElementById("create-acct-btn");
+
+// Add event listeners for sign up text-to-speech
+emailSignupInput.addEventListener('mouseenter', () => speakText('Email field'));
+emailSignupInput.addEventListener('mouseleave', stopSpeech);
+confirmEmailSignupInput.addEventListener('mouseenter', () => speakText('Confirm Email field'));
+confirmEmailSignupInput.addEventListener('mouseleave', stopSpeech);
+passwordSignupInput.addEventListener('mouseenter', () => speakText('Password field'));
+passwordSignupInput.addEventListener('mouseleave', stopSpeech);
+confirmPasswordSignupInput.addEventListener('mouseenter', () => speakText('Confirm Password field'));
+confirmPasswordSignupInput.addEventListener('mouseleave', stopSpeech);
+createAcctBtn.addEventListener('mouseenter', () => speakText('Create Account button'));
+createAcctBtn.addEventListener('mouseleave', stopSpeech);

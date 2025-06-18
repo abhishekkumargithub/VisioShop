@@ -17,15 +17,24 @@
     <!-- slider links -->
     <!-- <script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
     <script src="js/jQuery3.4.1.js"></script>
-    <script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+    <script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+    
 </head>
 
 <body>
     <!-- HEADER -->
     <div id="1"></div>
     <script>
+        var clothbtn=document.getElementById('clothing');
+        var accesbtn=document.getElementById('accessories');
         load("header.html");
         function load(url) {
             req = new XMLHttpRequest();
@@ -33,7 +42,9 @@
             req.send(null);
             document.getElementById(1).innerHTML = req.responseText;
         }
+        
     </script>
+    <script src="dropdown.js"></script>
     <!-- SLIDER -->
     <div id="2"></div>
     <script>
@@ -45,7 +56,6 @@
             document.getElementById(2).innerHTML = req.responseText;
         }
     </script>
-
     <!-- CONTENT SECTION -->
     <div id="3"></div>
     <script>
@@ -58,8 +68,8 @@
         }
     </script>
     <!--Translation  -->
-     
-     <script src="Translation.js"></script>
+    <div id="google_translate_element"></div>
+
     <!-- FOOTER -->
     <div id="4"></div>
 
@@ -67,9 +77,9 @@
     <div id="popup" class="popup">
         <div class="popup-content">
             <img src="./img/hide.png" width="70xp" height="70px">
-            <h2>Switch to Colorbind mode ?</h2>
+            <h2 class="read-on-hover">Switch to Colorbind mode ?</h2>
             <div class="popup-buttons">
-                <button class="popup-Options" id="switchBtn">Switch</button>
+                <button class="popup-Options" id="switchBtn" onclick="toggleColorBlind()">Switch</button>
                 <button class="popup-Options" id="skipBtn">Skip</button>
             </div>
         </div>
@@ -116,7 +126,6 @@
         }
 
         .popup-Options:hover {
-            /* background-color: #E9DFF3; */
             background-color: #1D1D1D;
             color: #ffffff;
             border: none;
@@ -127,9 +136,9 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var popup = document.getElementById('popup');
-
             var switchBtn = document.getElementById('switchBtn');
             var skipBtn = document.getElementById('skipBtn');
+           
 
             function displayPopup() {
                 popup.style.display = 'flex';
@@ -155,8 +164,25 @@
 
             displayPopup();
         });
-    </script>
+const elementsToRead1 = document.querySelectorAll('.read-on-hover');
 
+  // Function to speak the text
+  function speakText(text) {
+    const speech = new SpeechSynthesisUtterance(text);
+    window.speechSynthesis.speak(speech);
+  }
+
+  // Function to stop speaking
+  function stopSpeaking() {
+    window.speechSynthesis.cancel();
+  }
+
+  elementsToRead1.forEach(function (element) {
+    speakText(element.innerText);
+  });
+ 
+    </script>
+    
     <script>
         load("footer.html");
         function load(url) {
@@ -165,8 +191,8 @@
             req.send(null);
             document.getElementById(4).innerHTML = req.responseText;
         }
-    </script>
 
+    </script>
 </body>
 
 <!-- slider JS START -->
@@ -191,34 +217,31 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/SpeechKITT/0.3.0/speechkitt.min.js"></script>
 <script src="commands.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const clothingLink = document.getElementById('clothing');
-        const accessoriesLink = document.getElementById('accessories');
+    <script>
+    // Get all elements with the 'read-on-hover' class
+const elementsToRead = document.querySelectorAll('.read-on-hover');
 
-        // Function to speak the text using the Web Speech API
-        function speakText(text) {
-            const utterance = new SpeechSynthesisUtterance(text);
-            window.speechSynthesis.speak(utterance);
-        }
-        function stopSpeaking() {
-            speechSynthesis.cancel();
-        }
-        // Add event listeners for hover on clothing and accessories links
-        clothingLink.addEventListener('mouseover', function () {
-            speakText('Grocery');
-        });
+// Function to speak the text
+function speakText(text) {
+  const utterance = new SpeechSynthesisUtterance(text);
+  window.speechSynthesis.speak(utterance);
+}
 
-        accessoriesLink.addEventListener('mouseover', function () {
-            speakText('Medicines');
-        });
-        clothingLink.addEventListener("mouseleave", function () {
-            stopSpeaking();
-        });
-        accessoriesLink.addEventListener("mouseleave", function () {
-            stopSpeaking();
-        });
-    });
-</script>
+// Function to stop speaking
+function stopSpeaking() {
+  window.speechSynthesis.cancel();
+}
+
+// Add event listeners to each element with the 'read-on-hover' class
+elementsToRead.forEach(function(element) {
+  element.addEventListener('mouseover', function() {
+    speakText(element.innerText);
+  });
+
+  element.addEventListener('mouseout', function() {
+    stopSpeaking();
+  });
+});
+    </script>
 
 </html>

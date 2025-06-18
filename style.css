@@ -243,6 +243,7 @@ section{
     color: var(--orange);
     text-decoration: underline;
 }
+
 @media(max-width:991px){
    
     html {

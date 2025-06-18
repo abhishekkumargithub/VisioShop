@@ -2,6 +2,7 @@ body
 {
     margin: 0;
     font-family: 'Lato', sans-serif;
+    
 }
 
 #containerFooter
@@ -16,6 +17,7 @@ body
     font-size: 15px;
     padding: 15px 300px;
     box-sizing: border-box;
+    margin-bottom: 0;
 }
 #containerFooter h3:hover, #containerFooter p:hover
 {

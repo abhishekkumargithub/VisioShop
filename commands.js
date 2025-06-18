@@ -25,6 +25,25 @@
    }
    
     });
+    annyang.addCommands({
+      'color blind mode': function() {
+      
+          toggleColorBlind();
+          window.speechSynthesis.speak(utterance);
+
+          // Debug log to check if function is being called
+          console.log("Color blind mode command recognized");
+
+          // Call your custom function
+   }
+   
+    });
+    annyang.addCommands({
+      'text to speech': function() {
+        enableTextToSpeech();
+   }
+   
+    });
   
 annyang.addCommands({
   'add to cart': function() {

@@ -8,10 +8,11 @@ if (document.cookie.indexOf(',counter=') >= 0) {
     document.getElementById("badge").innerHTML = counter
 }
 function speak(text) {
-    responsiveVoice.speak(text);
+    const utterance = new SpeechSynthesisUtterance(text);
+    window.speechSynthesis.speak(utterance);
 }
 function stopSpeaking() {
-    responsiveVoice.cancel();
+    window.speechSynthesis.cancel();
 }
 function dynamicContentDetails(ob) {
     let mainContainer = document.createElement('div')
